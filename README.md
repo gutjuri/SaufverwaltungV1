@@ -8,5 +8,5 @@ frm.setIconImage(beer);
 ```
 in den Klassen, die mit "Gui" beginnen, auskommentieren ;)
 
-## Anpassen
+## Personalisierung
 Um das Programm an die eigenen Bedürfnisse anzupassen, bitte die Konstanten `SUPPORTED_MEMBERS`, `ALC_PRICE` und `ANTIALC_PRICE` in der Main Klasse anpassen. Was diese tun sollte eigentlich selbsterklärend sein.
