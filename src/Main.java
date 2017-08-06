@@ -6,11 +6,16 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Main {
 
 	public static final double VERSION = 0.2;
+
+	static final int SUPPORTED_MEMBERS = 50;
+	static final double ALC_PRICE = 1.5;
+	static final double ANTIALC_PRICE = 1;
 
 	public static String[] namen;
 	public static int[] statsAlk;
@@ -22,8 +27,8 @@ public class Main {
 		Path p = Paths.get("db.txt");
 		pfad = p.toString();
 		BufferedReader b = new BufferedReader(new FileReader(pfad));
-		namen = new String[50]; // zur zeit sind nur 50 mitglieder supported :P
-		double[] guth = new double[50];
+		namen = new String[SUPPORTED_MEMBERS];
+		double[] guth = new double[SUPPORTED_MEMBERS];
 		String curr = "";
 		int i = 0;
 		b.readLine();
@@ -70,7 +75,7 @@ public class Main {
 
 	public static void makefile(Person[] liste) throws Exception {
 
-		Date date = java.util.Calendar.getInstance().getTime(); // Datum
+		Date date = Calendar.getInstance().getTime(); // Datum
 		SimpleDateFormat dateFormatter = new SimpleDateFormat("dd.MM.yyyy");
 		String dateString = dateFormatter.format(date);
 
@@ -79,7 +84,8 @@ public class Main {
 		w.write("Strichliste:\t \t \t \t \t \t \t   " + dateString);
 		w.newLine();
 		w.newLine();
-		w.write("Name: \t | Alkoholisches (1,50\u20ac)       |     Antialkoholisches (1\u20ac) | Kapital");
+		w.write("Name: \t | Alkoholisches (" + ALC_PRICE + ".0\u20ac)       |     Antialkoholisches (" + ANTIALC_PRICE
+				+ "\u20ac) | Kapital");
 		w.newLine();
 		w.write("---------+-----------------------------+----------------------------+--------");
 		w.newLine();
